@@ -1,3 +1,5 @@
+import './scroll-to-top.js';
+
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('.menu-button');
 const mobileNav = document.querySelector('.mobile-nav');

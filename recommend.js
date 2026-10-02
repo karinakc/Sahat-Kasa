@@ -1,3 +1,5 @@
+import './scroll-to-top.js';
+
 const form = document.querySelector('#recommendation-form');
 const successPanel = document.querySelector('[data-success]');
 const anotherButton = document.querySelector('[data-another]');

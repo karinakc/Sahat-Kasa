@@ -1,4 +1,5 @@
 import { episodes, clips, CHANNEL_URL, CLIPS_PLAYLIST_URL, formatEpisodeDate } from './episodes-data.js';
+import './scroll-to-top.js';
 
 const PAGE_SIZE = 6;
 const searchInput = document.querySelector('[data-episode-search]');
