@@ -251,13 +251,13 @@ export const clips = [
     imageAlt: 'Jonny Dymond discussing Taiwan, China and Russia'
   },
   {
-    id: 'YFbdm58TNp0',
-    title: 'The Reason of Starting Podcast at age 18?',
-    guest: 'SJK Clips',
-    published: '2025-03-30',
-    url: 'https://youtu.be/YFbdm58TNp0',
-    image: youtubeThumbnail('YFbdm58TNp0'),
-    imageAlt: 'Sahat Kasa discussing why he started the podcast at age 18'
+    id: 'A4lc1_7RgCs',
+    title: 'Newa Content Seen as Cringe',
+    guest: 'Aashutosh Barahi',
+    published: '2026-04-22',
+    url: 'https://youtu.be/A4lc1_7RgCs',
+    image: youtubeThumbnail('A4lc1_7RgCs'),
+    imageAlt: 'Aashutosh Barahi discussing how Newa content is perceived'
   }
 ];
 
