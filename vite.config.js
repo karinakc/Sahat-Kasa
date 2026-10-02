@@ -6,7 +6,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: fileURLToPath(new URL('index.html', import.meta.url)),
-        recommend: fileURLToPath(new URL('recommend.html', import.meta.url))
+        recommend: fileURLToPath(new URL('recommend.html', import.meta.url)),
+        episodes: fileURLToPath(new URL('episodes/index.html', import.meta.url))
       }
     }
   }
