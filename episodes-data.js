@@ -1,11 +1,11 @@
-import recentEpisodeImage from './src/assets/recent-video.png';
-import sisanBaniyaImage from './src/assets/sisan-baniya.png';
-import monarchyImage from './src/assets/monarchy.png';
+import recentEpisodeImage from './src/assets/recent-video.webp';
+import sisanBaniyaImage from './src/assets/sisan-baniya.webp';
+import monarchyImage from './src/assets/monarchy.webp';
 
 export const CHANNEL_URL = 'https://www.youtube.com/@SahatKasa/videos';
 export const CLIPS_PLAYLIST_URL = 'https://youtube.com/playlist?list=PLCi-ERnXUfiOldRGaiF3LSqeyW17xaqTb&si=GwxNpHzaENWlzAot';
 
-const youtubeThumbnail = id => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+const youtubeThumbnail = id => `https://i.ytimg.com/vi_webp/${id}/hqdefault.webp`;
 
 const episodeCollection = [
   {
