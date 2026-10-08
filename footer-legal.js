@@ -1,0 +1,84 @@
+const footerBottom = document.querySelector('.footer-bottom');
+
+if (footerBottom) {
+  const legalLinks = document.createElement('div');
+  legalLinks.className = 'footer-legal-links';
+  legalLinks.innerHTML = `
+    <button type="button" data-legal-open="privacy">Privacy</button>
+    <button type="button" data-legal-open="terms">Terms</button>
+  `;
+
+  const backToTop = footerBottom.querySelector('a[href^="#"]');
+  footerBottom.insertBefore(legalLinks, backToTop || null);
+
+  const policies = {
+    privacy: {
+      label: 'Privacy policy',
+      title: 'How we handle your information',
+      summary: 'This policy explains what information this website receives, why it is used and the choices available to you.',
+      body: `
+        <section><h3>Information you submit</h3><p>The newsletter form collects the email address you provide. The guest recommendation form may collect your name, email address, relationship to the suggested guest and the guest's name, profession, location, profile link and the reasons or topics you submit.</p></section>
+        <section><h3>How the information is used</h3><p>Submitted information is used to deliver requested podcast updates, review guest recommendations, evaluate possible conversations and respond when appropriate. A recommendation does not guarantee a reply or invitation.</p></section>
+        <section><h3>Forms and service providers</h3><p>Website forms are processed by Formspree. The site is delivered through Cloudflare and uses services or content from YouTube and Google Fonts. These providers may process form contents or technical request information under their own policies. Links to YouTube, Instagram, TikTok, Facebook, Discord and other websites take you to services with separate privacy practices.</p></section>
+        <section><h3>Cookies and analytics</h3><p>The website code does not currently use a first-party analytics tool or set optional advertising or analytics cookies. Hosting and external service providers may still process basic technical data, such as IP address, browser information and request logs to deliver and protect their services.</p></section>
+        <section><h3>Retention and sharing</h3><p>No fixed retention schedule is currently published. Form submissions may remain with Formspree and in the receiving inbox until they are reviewed or removed and newsletter details may remain while updates are requested. Personal information is not sold. It may be handled by the service providers needed to operate the website and its forms.</p></section>
+        <section><h3>Your choices</h3><p>You can ask to stop receiving requested email updates. You may also ask to access, correct or delete information you submitted by emailing <a href="mailto:thesjkpodcast@gmail.com">thesjkpodcast@gmail.com</a>. We may need enough information to identify the relevant submission.</p></section>
+        <section><h3>Policy updates and contact</h3><p>This policy may be updated when the website, forms or service providers change. Questions or privacy requests can be sent to <a href="mailto:thesjkpodcast@gmail.com">thesjkpodcast@gmail.com</a>.</p></section>
+      `
+    },
+    terms: {
+      label: 'Terms of use',
+      title: 'Using The SJK Podcast website',
+      summary: 'These terms describe the basic conditions for accessing and using this website and its submission forms.',
+      body: `
+        <section><h3>Purpose of the website</h3><p>This website provides information about The SJK Podcast, its episodes, guests, community and related editorial content. It is offered for general information and conversation and is not professional legal, financial, medical or other specialist advice.</p></section>
+        <section><h3>Acceptable use</h3><p>Please use the website lawfully and do not attempt to disrupt its operation, interfere with other visitors, submit malicious material or misuse its forms. Information submitted through a form should be accurate to the best of your knowledge and should not unlawfully violate another person's privacy or rights.</p></section>
+        <section><h3>Guest recommendations and messages</h3><p>Submitting a recommendation or message does not guarantee a response, invitation, publication or appearance on the podcast. The SJK Podcast may decide whether and how to review or act on a submission.</p></section>
+        <section><h3>Website content</h3><p>Podcast branding original website writing, photography and other original site materials may not be republished or commercially reused without permission. Episodes, clips, thumbnails and third-party material remain subject to the rights and platform terms that apply to them.</p></section>
+        <section><h3>External services</h3><p>The website links to services such as YouTube and social platforms and uses Formspree for submissions. External services are provided under their own terms and may change or become unavailable independently of this website.</p></section>
+        <section><h3>Availability and changes</h3><p>The website and its content may be corrected, updated, suspended or removed. These terms may also be revised when the website or its services change; the date below identifies the current version.</p></section>
+        <section><h3>Contact</h3><p>Questions about these terms can be sent to <a href="mailto:thesjkpodcast@gmail.com">thesjkpodcast@gmail.com</a>.</p></section>
+      `
+    }
+  };
+
+  Object.entries(policies).forEach(([key, policy]) => {
+    const dialog = document.createElement('dialog');
+    dialog.className = 'legal-dialog';
+    dialog.dataset.legalDialog = key;
+    dialog.setAttribute('aria-labelledby', `${key}-dialog-title`);
+    dialog.setAttribute('aria-describedby', `${key}-dialog-summary`);
+    dialog.innerHTML = `
+      <div class="legal-dialog-inner">
+        <button class="legal-dialog-close" type="button" aria-label="Close ${policy.label}">&times;</button>
+        <header class="legal-dialog-header">
+          <p class="kicker">${policy.label}</p>
+          <h2 id="${key}-dialog-title">${policy.title}</h2>
+          <p id="${key}-dialog-summary" class="legal-dialog-summary">${policy.summary}</p>
+          <p class="legal-dialog-date">Last updated: October 8, 2026</p>
+        </header>
+        <div class="legal-dialog-copy">${policy.body}</div>
+      </div>
+    `;
+    document.body.appendChild(dialog);
+
+    dialog.querySelector('.legal-dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      dialog._returnFocus?.focus();
+      dialog._returnFocus = null;
+    });
+  });
+
+  legalLinks.addEventListener('click', event => {
+    const trigger = event.target.closest('[data-legal-open]');
+    if (!trigger) return;
+    const dialog = document.querySelector(`[data-legal-dialog="${trigger.dataset.legalOpen}"]`);
+    if (!dialog) return;
+    dialog._returnFocus = trigger;
+    dialog.showModal();
+    dialog.querySelector('.legal-dialog-close')?.focus();
+  });
+}

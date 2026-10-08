@@ -41,11 +41,11 @@
       <div class="intro-copy">
         <p class="eyebrow">Community nominations / 2026</p>
         <h1 id="page-title">Who should<br>sit down<br><em>next?</em></h1>
-        <p class="intro-lead">Help us find the voices that can challenge assumptions, share hard-earned insight, and move the conversation forward.</p>
+        <p class="intro-lead">Help us find the voices that can challenge assumptions, share hard-earned insight and move the conversation forward.</p>
       </div>
       <div class="editorial-note">
         <span>What makes a strong recommendation?</span>
-        <p>A clear story, a distinct point of view, and something meaningful for young people in Nepal and beyond.</p>
+        <p>A clear story, a distinct point of view and something meaningful for young people in Nepal and beyond.</p>
       </div>
     </section>
 
@@ -63,16 +63,19 @@
           <div class="field-grid">
             <label class="field">
               <span>Celebrity or guest name *</span>
-              <input name="guest_name" type="text" autocomplete="off" placeholder="e.g. Anuradha Koirala" required>
+              <small class="field-description">(Please provide their full name.)</small>
+              <input name="guest_name" type="text" autocomplete="off" required>
               <small class="field-error">Please enter the guest's name.</small>
             </label>
             <label class="field">
               <span>Known for / profession *</span>
-              <input name="known_for" type="text" autocomplete="off" placeholder="Artist, founder, athlete..." required>
+              <small class="field-description">(What do they do and what are they known for?)</small>
+              <input name="known_for" type="text" autocomplete="off" required>
               <small class="field-error">Tell us what they are known for.</small>
             </label>
             <label class="field">
               <span>Category *</span>
+              <small class="field-description">(Choose the field that best describes their work.)</small>
               <select name="category" required>
                 <option value="" selected disabled>Select a field</option>
                 <option>Politics &amp; Public Service</option>
@@ -89,11 +92,13 @@
             </label>
             <label class="field">
               <span>Country or city</span>
-              <input name="location" type="text" autocomplete="address-level2" placeholder="Kathmandu, Nepal">
+              <small class="field-description">(Where are they based? This is optional.)</small>
+              <input name="location" type="text" autocomplete="address-level2">
             </label>
             <label class="field field-wide">
               <span>Primary profile or website *</span>
-              <input name="profile_url" type="url" inputmode="url" placeholder="https://instagram.com/..." required>
+              <small class="field-description">(Share a public social media profile or website so we can learn more about them.)</small>
+              <input name="profile_url" type="url" inputmode="url" required>
               <small class="field-error">Add a valid public profile or website URL.</small>
             </label>
           </div>
@@ -104,13 +109,15 @@
           <div class="field-grid">
             <label class="field field-wide">
               <span>Why should they be on The SJK Podcast? *</span>
-              <textarea name="why_guest" rows="5" minlength="40" maxlength="700" placeholder="What makes their story, work, or perspective important right now?" required></textarea>
+              <small class="field-description">(Explain the unique insights, experiences or knowledge they could bring to the show.)</small>
+              <textarea name="why_guest" rows="5" minlength="40" maxlength="700" required></textarea>
               <small class="field-help"><b data-count="why_guest">0</b>/700</small>
               <small class="field-error">Please share at least 40 characters.</small>
             </label>
             <label class="field field-wide">
               <span>What should Sahat ask them? *</span>
-              <textarea name="talk_topics" rows="4" minlength="20" maxlength="450" placeholder="Suggest two or three questions, themes, or untold stories." required></textarea>
+              <small class="field-description">(Suggest specific topics, questions or issues this guest is known for.)</small>
+              <textarea name="talk_topics" rows="4" minlength="20" maxlength="450" required></textarea>
               <small class="field-help"><b data-count="talk_topics">0</b>/450</small>
               <small class="field-error">Please suggest at least one meaningful topic.</small>
             </label>
@@ -122,16 +129,19 @@
           <div class="field-grid">
             <label class="field">
               <span>Your name *</span>
-              <input name="recommender_name" type="text" autocomplete="name" placeholder="Your full name" required>
+              <small class="field-description">(Tell us who is making this recommendation.)</small>
+              <input name="recommender_name" type="text" autocomplete="name" required>
               <small class="field-error">Please enter your name.</small>
             </label>
             <label class="field">
               <span>Your email *</span>
-              <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <small class="field-description">(We may contact you if we need more information.)</small>
+              <input name="email" type="email" autocomplete="email" required>
               <small class="field-error">Enter a valid email address.</small>
             </label>
             <label class="field field-wide">
               <span>Your connection to the guest</span>
+              <small class="field-description">(Let us know if you know them personally. This is optional.)</small>
               <select name="relationship">
                 <option>No personal connection</option>
                 <option>Friend or family</option>
@@ -160,7 +170,7 @@
         <span class="success-icon" aria-hidden="true">✓</span>
         <p class="eyebrow">Recommendation prepared</p>
         <h2>GOOD VOICES DESERVE<br>THE RIGHT QUESTIONS.</h2>
-        <p>Your recommendation has been delivered directly to The SJK Podcast team. They’ll review the guest, their work, and your suggested conversation before deciding on outreach.</p>
+        <p>Your recommendation has been delivered directly to The SJK Podcast team. They’ll review the guest, their work and your suggested conversation before deciding on outreach.</p>
         <div class="success-actions">
           <button type="button" data-another>Recommend another</button>
           <a href="index.html">Return home ↗</a>

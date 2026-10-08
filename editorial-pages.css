@@ -33,6 +33,11 @@
 .profile-panel-dark .profile-body > p { color: #a4aaab; }
 .profile-notes { margin-top: 38px; padding-top: 22px; border-top: 1px solid rgba(7,10,15,.16); display: flex; flex-wrap: wrap; gap: 9px; }
 .profile-notes span { padding: 8px 11px; border: 1px solid rgba(7,10,15,.22); color: #555b5a; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.profile-body-portrait { padding:0; overflow:hidden; }
+.profile-portrait { height:clamp(260px,28vw,390px); margin:0; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; background:radial-gradient(circle at 50% 38%,rgba(0,153,216,.32),#0e1a2a 58%,#080d14 100%); }
+.profile-portrait img { width:auto; height:100%; max-width:none; object-fit:contain; object-position:center bottom; }
+.profile-copy { padding:clamp(30px,4vw,50px); }
+.profile-copy > p { margin:0; color:#5e6463; font-size:clamp(17px,1.35vw,21px); line-height:1.75; }
 .editorial-principle { margin-top: 38px; padding-top: 22px; border-top: 1px solid var(--line); display: grid; gap: 10px; }
 .editorial-principle span { color: var(--acid); font-family: var(--display); font-size: 24px; font-weight: 800; text-transform: uppercase; }
 
@@ -43,7 +48,7 @@
 .topic-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .topic-grid a { min-height: 370px; padding: 25px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; display: flex; flex-direction: column; transition: background .25s,color .25s; }
 .topic-grid a > span { color: var(--acid); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
-.topic-grid h3 { margin: auto 0 21px; font-family: var(--display); font-size: clamp(40px,4vw,59px); line-height: .9; text-transform: uppercase; }
+.topic-grid h3 { margin:auto 0 21px; font-family:var(--display); font-size:clamp(34px,3.25vw,50px); line-height:.92; text-transform:uppercase; }
 .topic-grid p { min-height: 4.8em; margin: 0; color: #8e9495; font-size: 12px; line-height: 1.6; }
 .topic-grid b { position: absolute; top: 22px; right: 24px; color: var(--acid); font-size: 20px; font-weight: 400; }
 .topic-grid a:hover { background: var(--acid); color: var(--ink); }
@@ -66,7 +71,7 @@
 .press-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(24px,3vw,42px); }
 .press-card { min-height: 560px; border: 1px solid var(--line); display: grid; grid-template-rows: auto auto 1fr auto; position: relative; background: #0d141f; overflow: hidden; }
 .press-media { width: 100%; height: auto; min-height: 135px; aspect-ratio: 16 / 9; overflow: hidden; background: #111d2c; }
-.press-media img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .5s ease; }
+.press-media img { width:100%; height:100%; display:block; object-fit:cover; object-position:top center; transition:transform .5s ease; }
 .press-card:hover .press-media img { transform: scale(1.035); }
 .press-card > span, .press-card-body, .press-actions { margin-left: clamp(28px,4vw,54px); margin-right: clamp(28px,4vw,54px); }
 .press-card > span { margin-top: clamp(25px,3vw,38px); }
@@ -105,9 +110,8 @@
 .recommend-intro { align-self: start; position: sticky; top: calc(var(--nav-h) + 45px); }
 .recommend-intro h2 { margin: 0 0 30px; font-size: clamp(52px,5.6vw,82px); }
 .recommend-intro > p:last-child { max-width: 500px; color: #969c9d; font-size: 15px; line-height: 1.75; }
-.recommendation-card { min-height: 400px; padding: clamp(28px,4vw,52px); border: 1px solid var(--line); position: relative; display: grid; grid-template-columns: auto 1fr; gap: 35px; align-content: center; background: #0d141f; transition: background .25s, border-color .25s, transform .25s; }
+.recommendation-card { min-height:400px; padding:clamp(28px,4vw,52px); border:1px solid var(--line); position:relative; display:grid; grid-template-columns:1fr; align-content:center; background:#0d141f; transition:background .25s,border-color .25s,transform .25s; }
 .recommendation-card:hover { background: #111d2c; border-color: rgba(0,153,216,.5); transform: translateY(-4px); }
-.recommendation-number { color: var(--acid); font-family: var(--display); font-size: 46px; font-weight: 800; line-height: .9; }
 .recommendation-card small { display: block; margin-bottom: 15px; color: var(--acid); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .recommendation-card strong { display: block; max-width: 510px; font-family: var(--display); font-size: clamp(36px,4vw,58px); line-height: .94; text-transform: uppercase; }
 .recommendation-card p { max-width: 520px; margin: 22px 0 0; color: #858b8c; font-size: 13px; line-height: 1.7; }

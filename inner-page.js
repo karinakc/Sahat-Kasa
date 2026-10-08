@@ -1,4 +1,5 @@
 import './scroll-to-top.js';
+import './footer-legal.js';
 
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('.menu-button');

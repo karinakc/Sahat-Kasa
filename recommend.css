@@ -49,7 +49,9 @@ legend span { display: inline-block; margin-right: 15px; color: var(--blue); fon
 .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 28px; }
 .field { min-width: 0; position: relative; display: flex; flex-direction: column; }
 .field-wide { grid-column: 1 / -1; }
-.field > span { margin-bottom: 11px; color: #444a4b; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.field > span { margin-bottom: 5px; color: #444a4b; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.field-description { min-height: 2.8em; margin-bottom: 8px; color: #707675; font-size: 11px; font-weight: 400; line-height: 1.4; }
+.field-wide .field-description { min-height: 0; }
 .field input, .field textarea, .field select { width: 100%; border: 0; border-bottom: 1px solid #afb2af; border-radius: 0; outline: 0; padding: 12px 0 14px; background: transparent; color: var(--ink); transition: border-color .2s, box-shadow .2s; }
 .field textarea { resize: vertical; min-height: 118px; line-height: 1.6; }
 .field select { cursor: pointer; }

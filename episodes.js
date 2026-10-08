@@ -1,11 +1,14 @@
-import { episodes, clips, CHANNEL_URL, CLIPS_PLAYLIST_URL, formatEpisodeDate } from './episodes-data.js';
+import { episodes, clips, SUBSCRIBE_URL, CLIPS_PLAYLIST_URL, formatEpisodeDate } from './episodes-data.js';
 import './scroll-to-top.js';
+import './footer-legal.js';
+import { updateLatestEpisodes } from './latest-episode.js';
 
 const PAGE_SIZE = 6;
 const searchInput = document.querySelector('[data-episode-search]');
 const filters = document.querySelector('[data-filters]');
 const grid = document.querySelector('[data-episode-grid]');
 const resultsCount = document.querySelector('[data-results-count]');
+const libraryCount = document.querySelector('[data-library-count]');
 const emptyState = document.querySelector('[data-empty-state]');
 const resetButton = document.querySelector('[data-reset-filters]');
 const loadMoreButton = document.querySelector('[data-load-more]');
@@ -13,6 +16,8 @@ const header = document.querySelector('[data-header]');
 const scrollProgress = document.querySelector('.scroll-progress');
 const menuButton = document.querySelector('.menu-button');
 const mobileNav = document.querySelector('.mobile-nav');
+
+if (libraryCount) libraryCount.textContent = String(episodes.length);
 
 let selectedCategory = 'All';
 let visibleCount = PAGE_SIZE;
@@ -41,21 +46,22 @@ const latestContainer = document.querySelector('[data-episodes-latest]');
 if (latestContainer && latest) {
   const published = formatEpisodeDate(latest.published);
   latestContainer.innerHTML = `
-    <article class="episodes-feature">
-      <a class="episodes-feature-visual" href="${latest.url}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${latest.title} on YouTube">
-        <img src="${localImage(latest.image)}" alt="${latest.imageAlt}" width="960" height="540">
+    <article class="episodes-feature" data-latest-card>
+      <a class="episodes-feature-visual" data-latest-link href="${latest.url}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${latest.title} on YouTube">
+        <img data-latest-thumbnail src="${localImage(latest.image)}" alt="${latest.imageAlt}" width="960" height="540">
         <span class="feature-watch" aria-hidden="true">▶</span>
-        ${latest.duration ? `<span class="duration">${latest.duration}</span>` : ''}
+        ${latest.duration ? `<span class="duration" data-latest-duration>${latest.duration}</span>` : ''}
       </a>
       <div class="episodes-feature-copy">
-        <div class="library-meta"><span>${latest.category}</span>${latest.duration ? `<span>${latest.duration}</span>` : ''}${published ? `<time datetime="${latest.published}">${published}</time>` : ''}</div>
-        <p class="feature-guest">${latest.guest}</p>
-        <h3>${latest.title}</h3>
-        <p>${latest.description}</p>
-        <a class="button button-primary" href="${latest.url}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span>Watch episode</a>
+        <div class="library-meta"><span>Full episode</span>${latest.duration ? `<span data-latest-duration>${latest.duration}</span>` : ''}${published ? `<time data-latest-date datetime="${latest.published}">${published}</time>` : ''}</div>
+        <p class="feature-guest" data-latest-guest>${latest.guest}</p>
+        <h3 data-latest-title>${latest.title}</h3>
+        <p data-latest-description>${latest.description}</p>
+        <a class="button button-primary" data-latest-link href="${latest.url}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span>Watch episode</a>
       </div>
     </article>`;
 }
+updateLatestEpisodes();
 
 filters.innerHTML = categories.map(category => `
   <button type="button" class="filter-button" data-category="${category}" aria-pressed="${category === 'All'}">${category}</button>`).join('');
@@ -133,7 +139,7 @@ document.querySelector('[data-clips-grid]').innerHTML = clips.map(clip => `
   </article>`).join('');
 
 document.querySelector('[data-clips-playlist]').href = CLIPS_PLAYLIST_URL;
-document.querySelector('[data-channel-link]').href = CHANNEL_URL;
+document.querySelector('[data-channel-link]').href = SUBSCRIBE_URL;
 
 menuButton?.addEventListener('click', event => {
   event.preventDefault();

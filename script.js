@@ -1,4 +1,8 @@
 import './scroll-to-top.js';
+import './footer-legal.js';
+import { updateLatestEpisodes } from './latest-episode.js';
+
+updateLatestEpisodes();
 
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('.menu-button');
